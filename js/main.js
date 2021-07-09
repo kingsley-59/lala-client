@@ -75,9 +75,10 @@ function payWithPaystack(email, amount, reference) {
 
       //this happens after the payment is completed successfully
 
-      var reference = response.reference;
-
-      alert('Payment complete! Reference: ' + reference);
+        var reference = response.reference;
+        $("#txnid").html(reference);
+        $("#txn-success").css('display', 'block');
+        //alert('Payment complete! Reference: ' + reference);
 
       // Make an AJAX call to your server with the reference to verify the transaction
 
