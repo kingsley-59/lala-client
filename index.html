@@ -22,6 +22,7 @@
             </div>
         </div>
         <div class="logo">
+            <!-- <img src="img/LALA Foods Logo.png" alt="" width="100px" height="100px"> -->
             <span>logo</span>
         </div>
         <div class="logo-name">
@@ -33,7 +34,7 @@
     </header>
     <section>
         <div class="header-writeup">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad maxime et illum, corporis alias, dolore a, repudiandae numquam quod voluptatum id repellendus dolor omnis sint.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde distinctio maxime eos molestiae beatae officia exercitationem autem ullam maiores, ut, consectetur veniam. Nam omnis iste expedita? Beatae vero assumenda cum at soluta nobis corrupti quod!
         </div>
         <div class="cta">
             <!-- <button>Make Order Now</button> -->
@@ -91,10 +92,14 @@
                                 <div class="form-submit form-group">
                                     <input type="submit" class="btn btn-primary" value="Pay Now">
                                 </div>
-                                <div class="alert alert-success alert-dismissible" id="txn-success">
+                                <div class="alert alert-success alert-dismissible fade in" id="txn-success">
                                     <a href="#" class="close"  data-dismiss="alert" aria-label="close">&times;</a>
                                     <strong>Success!</strong> Your transaction ID is <span id="txnid"></span>. Screenshot or copy and save till you redeem your order.
-                                  </div>
+                                </div>
+                                <div class="alert alert-danger alert-dismissible fade in" id="txn-failed">
+                                    <a href="#" class="close"  data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong>Error!</strong> Your transaction was not successful. Please try again or contact us at <a href="https://wa.me/+2348155418988?text=Hello.%20My%20name%20is____" class="alert-link">Lala Foods</a>
+                                </div>
                             </form>
                         </div>
                     </div>

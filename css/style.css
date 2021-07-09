@@ -118,7 +118,7 @@ section{
 .form-submit{
     text-align: center;
 }
-#txn-success{
+#txn-success, #txn-failed{
     display: none;
 }
 
