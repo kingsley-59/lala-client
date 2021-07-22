@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <title>LALA FOODS</title>
 </head>
@@ -88,6 +88,11 @@
                                     <label for="last-name">Last Name</label>
                                     <input type="text" id="lastname" class="form-control"/>
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="last-name">Phone No</label>
+                                    <input type="tel" id="phone_no" class="form-control"/>
+                                </div>
                                 
                                 <div class="form-submit form-group">
                                     <input type="submit" class="btn btn-primary" value="Pay Now">
@@ -118,6 +123,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <!-- <script src="js/jquery.js"></script> -->
-    <script src="js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

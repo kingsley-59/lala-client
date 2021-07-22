@@ -25,7 +25,7 @@ $(document).ready(function () {
         $("#amount").val(priceoptions[meal - 1]);
         $("#meal-description").val(mealdescriptions[meal - 1]);
     });
-});
+
 
 $("#paymentForm").submit(function (event) {
     event.preventDefault(event);
@@ -43,7 +43,30 @@ $("#paymentForm").submit(function (event) {
     order = mealoptions[order - 1];
     var amount = $("#amount").val();
     var txnId = Date.now();
-    payWithPaystack(email, amount, txnId, firstname, lastname, order, amount);
+    var phone_no = $("#phone_no").val();
+    //create input to accept phone numeber!
+    //payWithPaystack(email, amount, txnId, firstname, lastname, order, phone_no);
+    $.ajax({
+        url: 'http://127.0.0.1:5000/',
+        type: 'POST',
+        data: {
+            name: firstname + ' ' + lastname,
+            email: email,
+            order: order,
+            amount: amount,
+            transactionId: txnId,
+            phone_no: phone_no
+        },
+        success: function (status, response) {
+            //alert('success');
+            if (status == 'success') {
+                //do something
+            }
+        },
+        error: function () {
+            alert('Error');
+        }
+    });
 })
 
 function generateTxnId() {
@@ -59,7 +82,7 @@ function reverseOrderCode(orderCode) {
     txnId = parseInt(orderCode,16);
 }
 
-function payWithPaystack(email, amount, reference, firstname, lastname, order, amount) {
+function payWithPaystack(email, amount, reference, firstname, lastname, order, phone_no) {
 
   var handler = PaystackPop.setup({
 
@@ -97,6 +120,29 @@ function payWithPaystack(email, amount, reference, firstname, lastname, order, a
         //alert('Payment complete! Reference: ' + reference);
 
         // Make an AJAX call to your server with the reference to verify the transaction
+        $.ajax({
+            url: 'http://127.0.0.1:5000/',
+            type: 'POST',
+            data: {
+                name: firstname + ' ' + lastname,
+                email: email,
+                order: order,
+                amount: amount,
+                transactionId: reference,
+                phone_no: phone_no
+            },
+            success: function (status, response) {
+                if (status == 'success') {
+                    alert(response.status);
+                    if (response.status == 'OK') {
+                        location.href = '/transaction-success/'+reference;
+                    }
+                }
+            },
+            error: function () {
+                //do something
+            }
+        });
 
     },
 
@@ -109,4 +155,7 @@ function payWithPaystack(email, amount, reference, firstname, lastname, order, a
 
   handler.openIframe();
 
-}
+    }
+
+
+});

@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>LALA ADMIN</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>LALA FOODS</title>
 </head>
 <body>
     <header>
@@ -21,6 +22,7 @@
             </div>
         </div>
         <div class="logo">
+            <!-- <img src="img/LALA Foods Logo.png" alt="" width="100px" height="100px"> -->
             <span>logo</span>
         </div>
         <div class="logo-name">
@@ -31,14 +33,15 @@
         </div>
     </header>
     <section>
-        
+
     </section>
+    <footer>
 
-
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <!-- <script src="js/jquery.js"></script> -->
-    <script src="js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
