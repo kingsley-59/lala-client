@@ -11,9 +11,6 @@
     font-size: 16px;
     font-family: 'Quicksand', sans-serif;
 }
-html, body{
-    overflow-x: hidden;
-}
 .text-white{
     color: #ffffff;
 }
@@ -42,18 +39,24 @@ html, body{
     background-color: #e6f5e2;
 }
 
+
 section{
     width: 100%;
     min-height: 50vh;
-    padding: 40px;
+    padding: 30px;
+}
+hr{
+    margin: 0;
+    border-top: 1px solid #ccc;
 }
 
 .banner{
     padding: 0;
     width: 100%;
-    height: 100vh;
+    height: 60vh;
     display: flex;
     justify-content: center;
+    align-items: flex-end;
     background-image: url(/assets/img/banner1.jpg);
     background-size: cover;
     background-position: center;
@@ -70,8 +73,7 @@ section{
     height: auto;
 }
 .big-text{
-    text-align: center;
-    margin-bottom: 100px;
+    text-align: left;
 }
 .big-text span{
     font-family: 'Oswald', sans-serif;
@@ -82,7 +84,7 @@ section{
 }
 .banner-button{
     width: 100%;
-    text-align: center;
+    text-align: left;
 }
 .banner-button button{
     width: 200px;
@@ -193,153 +195,9 @@ section{
     background-color: #974C06;
 }
 
-/* .process{
-    
-} */
-.process-header h3{
-    font-size: 32px;
-    font-weight: 400;
-    color: #606060;
-}
-.process-header span{
-    font-size: 16px;
-    font-weight: 500;
-    color: #606060;
-}
-.procedure{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-}
-.procedure-item{
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: none;
-    border-radius: 6px;
-    padding: 15px;
-    margin: 15px 0 15px 0;
-}
-.procedure-item div{
-    text-align: center;
-}
-.procedure-item img{
-    width: 30%;
-    height: auto;
-}
-.procedure-item h3{
-    text-align: center;
-    font-size: 24px;
-    font-weight: 500;
-    color: #027615;
-    margin-bottom: 15px;
-}
-.procedure-item p{
-    text-align: center;
-    font-size: 18px;
-    font-weight: 500;
-    color: #606060;
-    margin-bottom: 15px;
-}
 
 
-.reviews{
-    min-height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: flex-start;
-    box-sizing: border-box;
-    background-image: url(../img/banner1.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-color: #faf6f3;
-}
-.reviews-heading{
-    font-size: 26px;
-    font-weight: 600;
-    padding: 30px 0 30px 80px;
-    text-align: left;
-    color: #fdfdfd;
-}
-.container-main{
-    max-width: 100%;
-    border: none;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.0);
-    box-sizing: border-box;
-}
-.review{
-    width: 250px;
-    min-height: 250px;
-    padding: 20px;
-    margin: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #faf6f3e3;
-    border-radius: 10px;
-}
-.review p{
-    font-size: 16px;
-    font-weight: 400;
-    color: #444;
-}
-.review span{
-    font-size: 20px;
-    font-weight: 500;
-    color: #361b02;
-}
-
-
-
-
-/* openhours-et-location */
-.openhours{
-    float: left;
-    min-height: 50vh;
-    display: inline;
-    width: 45%;
-}
-.openhours-header{
-    margin-bottom: 30px;
-}
-
-.location{
-    float: right;
-    min-height: 50vh;
-    display: inline;
-    width: 45%;
-}
-.map-container{
-    width: 100%;
-    min-height: 300px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-#main-map{
-    min-height: 300px;
-}
-
-
-
-
-
-
-@media only screen and (max-width:800px){
-    section{
-        width: 100%;
-        min-height: 50vh;
-        padding: 25px;
-    }
-
+@media only screen and (max-width:750px){
     .product-main{
         margin: 0;
         display: flex;
@@ -375,33 +233,4 @@ section{
         background-color: #974C06;
     }
 
-
-    .procedure{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .procedure-item{
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .openhours, .location{
-        display: block;
-        width: 100%;
-    }
-
-    
-    .reviews{
-        height: auto;
-    }
-    
-
-    
-    
-    
 }
