@@ -13,7 +13,6 @@
     
     <?php include 'header.php'; ?>
 
-
     <section class="banner">
         <div class="banner-body">
             <div class="banner-content">
