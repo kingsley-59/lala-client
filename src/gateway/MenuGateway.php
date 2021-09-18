@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace Src\Gateway;
 
 class MenuGateway
@@ -84,17 +82,17 @@ WHERE `email` = '$email';
         }
     }
 
-    public function delete($id)
+    public function delete($meal)
     {
         $table = $this->table;
         $statement = "
-DELETE FROM `$table`
-WHERE `id` = :id;
-";
+        DELETE FROM `$table`
+        WHERE `meal_name` = $meal;
+        ";
 
         try {
             $statement = $this->db->prepare($statement);
-            $statement->execute(array('id' => $id));
+            $statement->execute();
             return $statement->rowCount();
         } catch (\PDOException $e) {
             exit($e->getMessage());

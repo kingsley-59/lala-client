@@ -147,6 +147,10 @@ function email_exists($email, $admin_list){
             font-size: 18px;
             font-weight: 500;
         }
+
+        .login-form{
+            margin: auto;
+        }
     </style>
     <script src="https://kit.fontawesome.com/114be06a79.js" crossorigin="anonymous"></script>
     <title>Admin Login | Lala Healthy Foods</title>

@@ -27,10 +27,17 @@
         </div>
     </section>
 
-
+    
     <section>
         <div class="about">
-            
+            <div class="about-header">
+                <h3>What you need to know about US!</h3>
+            </div>
+            <div class="about-text text-center">
+                <p>
+                    Lala Healthy Foods is a food company that is dedicated to ensuring that you get the best quality food delivered to you fresh and hot. We leave no stone unturned in making sure that our customers enjoy the best meals as well as get the best services from us.
+                </p>
+            </div>
         </div>
     </section>
 

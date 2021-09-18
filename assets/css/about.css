@@ -96,3 +96,18 @@ hr{
     font-weight: 500;
 }
 
+.about-header{
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+section .about{
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #e6f5e2;
+    border-radius: 10px;
+    margin: auto;
+    min-height: 50vh;
+}

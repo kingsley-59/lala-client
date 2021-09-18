@@ -16,6 +16,8 @@ $targetDir = dirname(dirname(__DIR__)) . '\storage\meal_photos\\';
 $upload_result = (isset($_POST['meal'])) ? process_request($targetDir, $menu_gateway) : '';
 echo $upload_result;
 
+$delete_meal = (isset($_GET['del'])) ? delete_meal($_GET['del'], $menu_gateway) : '';
+
 //get all menu items from database
 $menu_result = $menu_gateway->get_all();
 
@@ -68,6 +70,17 @@ function verify_format($file_type)
 }
 
 
+function delete_meal($meal, $menu_gateway){
+    if(empty($meal)){
+        return "No meal selected to be deleted";
+    }
+
+    $response = $menu_gateway->delete($meal);
+
+    return ($response == '1') ? "Item deleted successfully" : "An error ocurred: " . $response;
+}
+
+
 ?>
 
 <section class="manage-menu">
@@ -108,7 +121,7 @@ function verify_format($file_type)
                     <div class="item-photo">
                         <img src="<?php echo '/storage/meal_photos//' . $row['file_name']; ?>" alt="<?php echo $row['meal_name'] . 'photo'; ?>">
                         <div class="item-overlay">
-                            <button class="btn btn-danger">Delete</button>
+                            <a href="<?php echo '?del=' . $row['meal_name']; ?>"><button class="btn btn-danger">Delete</button></a>
                         </div>
                     </div>
                     <div class="item-name text-center">
