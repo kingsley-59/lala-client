@@ -82,29 +82,5 @@ if(isset($uri[1]) && !empty($uri[1])){
 }
 
 
-$txnId = null;
-if($uri[1] == 'transaction-success'){
-    $txnId = $uri[2] ?? null;
-}
-
-
-// pass the request method and user ID to the PersonController:
-// $controller = new TxnListController($dbConnection, $requestMethod, $txnId);
-// $result = $controller->processRequest();
-// if (isset($result['location'])){
-//     $redirect_url = $result['location'];
-//     if($redirect_url != null){
-//         header("Location: /$redirect_url");
-//     }
-// }
-
-
-
-
-
-
-
-
-
 
 ?>

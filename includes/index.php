@@ -2,12 +2,15 @@
 
 use Src\System\DatabaseConnector;
 use Src\Gateway\MenuGateway;
+use Src\Gateway\ReviewGateway;
 
 $db = (new DatabaseConnector)->getConnection();
 $menu_gateway = new MenuGateway($db);
+$review_gateway = new ReviewGateway($db);
 
 //get all menu items from database
 $menu_result = $menu_gateway->get_all();
+$reviews = $review_gateway->get_all();
 
 
 ?>
@@ -39,7 +42,7 @@ $menu_result = $menu_gateway->get_all();
                     <span>Taste the Goodness of a Healthy Delicious Meal.</span>
                 </div>
                 <div class="banner-button">
-                    <button class="text-white">Place Order Now</button>
+                    <a href="/checkout"><button class="text-white">Place Order Now</button></a>
                 </div>
             </div>
         </div>
@@ -183,24 +186,23 @@ $menu_result = $menu_gateway->get_all();
             <h3>WHAT CUSTOMERS ARE SAYING</h3>
         </div>
         <div class="container-main">
-            <div class="review">
-                <p>
-                    Very delicious meal. I've tasted every one of them. You just can't wait to taste the delight!
-                </p>
-                <span>David Martins</span>
-            </div>
-            <div class="review">
-                <p>
-                    Very delicious meal. I've tasted every one of them. You just can't wait to taste the delight!
-                </p>
-                <span>David Martins</span>
-            </div>
-            <div class="review">
-                <p>
-                    Very delicious meal. I've tasted every one of them. You just can't wait to taste the delight!
-                </p>
-                <span>David Martins</span>
-            </div>
+            <?php if($reviews): ?>
+                <?php foreach($reviews as $row): ?>
+                    <div class="review">
+                        <p>
+                            <?php echo $row['review']; ?>
+                        </p>
+                        <span><?php echo $row['name'] ?></span>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="review">
+                        <p>
+                            Very delicious meal. I've tasted every one of them. You just can't wait to taste the delight!
+                        </p>
+                        <span>David Martins</span>
+                    </div>
+            <?php endif; ?>
         </div>
     </section>
 
