@@ -79,9 +79,9 @@ if ($filter != null){
                             <td>
                                 <?php //Use the button as a link to call the update ftn of the order gateway. ?>
                                 <?php if($row["redeemed"] == 0): ?>
-                                    <?php echo '<button class="btn btn-warning">No yet</button>'; ?>
+                                    <?php echo '<button class="btn btn-success" onclick="mark_as_redeemed(this, '.$row["txn_id"].')">Redeem</button>'; ?>
                                 <?php else: ?>
-                                    <?php echo '<button class="btn btn-success">Yes!</button>'; ?>
+                                    <?php echo '<button class="btn btn-default">Taken</button>'; ?>
                                 <?php endif; ?>
                             </td>
                         </tr>
@@ -93,3 +93,26 @@ if ($filter != null){
         </div>
     </div>
 </section>
+
+<script>
+    let redeem_btn = document.getElementById('redeem');
+    let taken_btn = document.getElementById('taken');
+
+    function mark_as_redeemed(e, txn_id){
+        let data = {
+            txn_id: txn_id
+        }
+        $.post(
+            '/mark_as_redeemed',
+            JSON.stringify(data),
+            function(response){
+                console.log(response);
+                if(response == 'success'){
+                    e.classList.remove('btn-success');
+                    e.innerHTML = 'Taken';
+                    e.classList.add('btn-default');
+                }
+            }
+        )
+    }
+</script>

@@ -98,14 +98,14 @@ class OrderGateway{
         }    
     }
 
-    public function update($email, $param, $value)
+    public function update($txn_id, $param, $value)
     {
         $table = $this->table;
         $statement = "
             UPDATE `$table`
             SET 
                 `$param` = $value
-            WHERE `email` = '$email';
+            WHERE `txn_id` = '$txn_id';
         ";
 
         try {

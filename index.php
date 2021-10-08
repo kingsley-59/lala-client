@@ -65,6 +65,18 @@ if(isset($uri[1]) && !empty($uri[1])){
         $controller->verify_transaction($email,$ref);
         exit();
     }
+
+    if($uri[1] == 'mark_as_redeemed'){
+        $data = file_get_contents('php://input');
+        $data = json_decode($data, true);
+        $txn_id = $data["txn_id"];
+        $orderGateway = new Src\Gateway\OrderGateway($dbConnection, 'orders');
+        $result = $orderGateway->update($txn_id, 'redeemed', true);
+        $response = ($result == 1) ? 'success' : 'failed';
+        echo $response;
+        
+        exit();
+    }
     
     $page = $uri[1];
     $file_path = __DIR__.'\includes\\' . $page. '.php';

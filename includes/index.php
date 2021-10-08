@@ -10,7 +10,7 @@ $review_gateway = new ReviewGateway($db);
 
 //get all menu items from database
 $menu_result = $menu_gateway->get_all();
-$reviews = $review_gateway->get_all();
+$reviews = $review_gateway->get_live_reviews();
 
 
 ?>
@@ -193,6 +193,7 @@ $reviews = $review_gateway->get_all();
                             <?php echo $row['review']; ?>
                         </p>
                         <span><?php echo $row['name'] ?></span>
+                        <p><small><?php echo $row['email'] ?></small></p>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
@@ -202,6 +203,8 @@ $reviews = $review_gateway->get_all();
                         </p>
                         <span>David Martins</span>
                     </div>
+                    
+                <script>console.log(<?php echo var_dump($reviews); ?>)</script>
             <?php endif; ?>
         </div>
     </section>

@@ -51,6 +51,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <div class="txns">
                 <a href="?admin-page=orders">Orders</a>
             </div>
+            <div class="txns">
+                <a href="?admin-page=reviews">Manage Reviews</a>
+            </div>
             <div class="email">
                 <a href="?admin-page=compose-email">Compose email</a>
             </div>

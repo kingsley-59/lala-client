@@ -13,11 +13,49 @@ class ReviewGateway
         $this->table = 'reviews';
     }
 
-    public function get_all($limit = 5)
+    public function get_all($limit = 20)
     {
         $table = $this->table;
         $statement = "
             SELECT * FROM `$table` ORDER BY `id` DESC LIMIT $limit
+        ";
+
+        try {
+            $statement = $this->db->query($statement);
+            if ($statement) {
+                $result = $statement->fetchAll(\PDO::FETCH_ASSOC);
+            } else {
+                return $statement;
+            }
+            return $result;
+        } catch (\PDOException $e) {
+            exit($e->getMessage());
+        }
+    }
+
+    public function get_live_reviews($limit = 5){
+        $table = $this->table;
+        $statement = "
+            SELECT * FROM `$table` WHERE `is_deleted` = FALSE ORDER BY `id` DESC LIMIT $limit
+        ";
+
+        try {
+            $statement = $this->db->query($statement);
+            if ($statement) {
+                $result = $statement->fetchAll(\PDO::FETCH_ASSOC);
+            } else {
+                return $statement;
+            }
+            return $result;
+        } catch (\PDOException $e) {
+            exit($e->getMessage());
+        }
+    }
+
+    public function get_deleted_reviews($limit = 5){
+        $table = $this->table;
+        $statement = "
+            SELECT * FROM `$table` WHERE `is_deleted` = TRUE ORDER BY `id` DESC LIMIT $limit
         ";
 
         try {
@@ -38,9 +76,9 @@ class ReviewGateway
         $table = $this->table;
         $statement = "
         INSERT INTO `$table`
-        (`name`, `email`, `review`, `modified`)
+        (`name`, `email`, `review`, `modified`, `is_deleted`)
         VALUES
-        (:name, :email, :review, now());
+        (:name, :email, :review, now(), FALSE);
         ";
 
         try {
@@ -62,15 +100,15 @@ class ReviewGateway
         }
     }
 
-    public function update($email, $param, $value)
+    public function update($id, $param, $value)
     {
         $table = $this->table;
         $statement = "
-UPDATE `$table`
-SET
-`$param` = $value
-WHERE `email` = '$email';
-";
+        UPDATE `$table`
+        SET
+        `$param` = $value
+        WHERE `id` = $id
+        ";
 
         try {
             $statement = $this->db->prepare($statement);

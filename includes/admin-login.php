@@ -20,8 +20,9 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     exit;
 }
 
+$login_success = false;
 $process_result = (isset($_POST['email'])) ? process_request($userGateway, $admin_list) : '';
-echo $process_result;
+//echo $process_result;
 
 function process_request($userGateway, $admin_list){
     if(isset($_POST['email']) && !empty($_POST['email'])){
@@ -41,6 +42,7 @@ function process_request($userGateway, $admin_list){
                 $_SESSION["loggedin"] = true;
                 $_SESSION["email"] = $email;
                 // Redirect user to admin page
+                $login_success = true;
                 header("location: /admin");
             }else{
                 return "Incorrect password. Please try again.";
@@ -188,6 +190,11 @@ function email_exists($email, $admin_list){
                 <div class="form-group text-center">
                     <input type="submit" value="Login" class="btn btn-success">
                 </div>
+                <?php if($login_success == true): ?>
+                    <div class="alert alert-success">Login successfu!</div>
+                <?php else: ?>
+                    <div class="alert alert-danger"><?php echo $process_result; ?></div>
+                <?php endif; ?>
             </form>
         </div>
     </section>
